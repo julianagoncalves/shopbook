@@ -1,0 +1,25 @@
+<header>
+  <h1>Livros</h1>
+  <input placeholder="Nome do Livro" autofocus="" [(ngModel)]="newLivro.nome" >
+  <input placeholder="Edição" [(ngModel)]="newLivro.edicao">
+  <input placeholder="Ano" autofocus="" [(ngModel)]="newLivro.ano">
+  <input placeholder="Upload Imagem" autofocus="" [(ngModel)]="newLivro.imagem">
+  <button (click)="addLivro()">Salvar</button>
+</header>
+<section *ngIf="livros.length > 0">
+  <ul>
+    <li *ngFor="let livro of livros">
+      <div>
+        <!--<input type="checkbox" (click)="alternarTarefaComplete(tarefa)" [checked]="tarefa.concluida">-->
+        <label>{{livro.nome}}</label>
+        <label>{{livro.edicao}}</label>
+        <label>{{livro.ano}}</label>
+        <label>{{livro.imagem}}</label>
+        <button (click)="removeLivro(livro)">X</button>
+      </div>
+    </li>
+  </ul>
+</section>
+<footer *ngIf="livros.length > 0">
+  <span><strong>{{livros.length}}</strong> {{livros.length == 1 ? 'livro' : 'livros'}} </span>
+</footer>
